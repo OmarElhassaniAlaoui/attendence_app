@@ -1,16 +1,68 @@
-# flutter_clean_architecture_starter
+# Flutter Clean Architecture Starter
 
-A new Flutter project.
+## 🚀 Introduction
 
-## Getting Started
+This repository provides a **Flutter Clean Architecture Starter** to help developers quickly set up their projects with a structured and scalable architecture. It follows **Clean Architecture principles** and includes:
 
-This project is a starting point for a Flutter application.
+✅ Predefined folder structure for **Clean Architecture**
+✅ **Cubit (Bloc) for state management**
+✅ **Routing, Theming, and Error Handling**
+✅ Template files for **data sources, repositories, and use cases**
+✅ Ready-to-go **multi-platform support** (Android, iOS, Web, Windows, Linux, macOS)
 
-A few resources to get you started if this is your first Flutter project:
+## 📂 Folder Structure
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```
+lib/
+│-- injection_container.dart
+│-- main.dart
+│-- src/
+    │-- app/
+    │   │-- core/ (Errors, UseCases)
+    │   │-- helpers/ (Cubit Observer)
+    │   │-- routes/ (App Routes)
+    │   │-- themes/ (App Themes, Typography, Palette, Spacing)
+    │   │-- widgets/ (Global Widgets)
+    │-- data/
+    │   │-- datasources/ (Local & Remote Data Sources)
+    │   │-- models/ (Data Models)
+    │   │-- repositories/ (Repository Implementations)
+    │-- domain/
+    │   │-- entities/ (Entities)
+    │   │-- repositories/ (Repository Interfaces)
+    │   │-- usecases/ (Use Cases)
+    │-- presentation/
+        │-- home/ (Home Page, Bloc, Widgets)
+        │-- template/ (Template Page, Bloc, Widgets)
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Getting Started
+
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/YOUR_USERNAME/flutter_clean_architecture_starter.git
+cd flutter_clean_architecture_starter
+```
+
+### 2️⃣ Install Dependencies
+```sh
+flutter pub get
+```
+
+### 3️⃣ Run the App
+```sh
+flutter run
+```
+
+## 🔥 Contributing
+Feel free to **fork this repository** and submit **pull requests** to enhance the structure!
+
+## ⭐ Show Some Love
+If this project helps you, please give it a **star ⭐** on GitHub!
+
+## 📬 Contact
+For any suggestions or feedback, connect with me on **website**: [https://www.omarelhassanialaoui.xyz/](omarelhassanialaoui)
+
+---
+
+Happy coding! 🚀
