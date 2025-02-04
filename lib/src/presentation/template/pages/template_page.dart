@@ -28,7 +28,7 @@ class _TemplatePageState extends State<TemplatePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
-              'You have pushed the button this many times:',
+              'You have pushed the button this many times: ',
             ),
             Text(
               '$_counter',
