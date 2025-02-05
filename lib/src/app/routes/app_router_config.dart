@@ -1,4 +1,6 @@
 
+import 'package:flutter_clean_architecture_starter/src/presentation/auth/pages/login_page.dart';
+
 import 'routes_exports.dart';
 part "app_routes.dart";
 
@@ -16,6 +18,12 @@ class AppPagesConfig {
       path: AppRoutes.template,
       builder: (context, state) => const TemplatePage(),
     ),
+    
+    GoRoute(
+      path: AppRoutes.logIn,
+      builder: (context, state) => const LoginPage(),
+    ),
+
     // ... other routes
   ];
 }

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture_starter/src/app/routes/app_router_config.dart';
+import 'package:flutter_clean_architecture_starter/src/app/routes/routes_exports.dart';
 
 class TemplatePage extends StatefulWidget {
   const TemplatePage({super.key});
@@ -33,6 +35,12 @@ class _TemplatePageState extends State<TemplatePage> {
             Text(
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
+            ),
+            ElevatedButton(
+              onPressed: () {
+                context.go(AppRoutes.logIn);
+              },
+              child: const Text('Increment'),
             ),
           ],
         ),
