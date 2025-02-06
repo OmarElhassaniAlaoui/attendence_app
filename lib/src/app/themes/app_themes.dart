@@ -1,48 +1,25 @@
-import 'package:flutter_clean_architecture_starter/src/app/routes/routes_exports.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture_starter/src/app/themes/app_palette.dart';
 
 class AppThemes {
-  const AppThemes._();
+  AppThemes._();
 
-  static ThemeData darkTheme = ThemeData(
-    colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+  static ThemeData dark = ThemeData(
+    brightness: Brightness.dark,
+    primaryColor: AppPalette.primarySwatch,
     useMaterial3: true,
-    // primaryColor: Colors.deepPurple,
-    // scaffoldBackgroundColor: Colors.black,
-    // appBarTheme: const AppBarTheme(
-    //   backgroundColor: Colors.black,
-    //   foregroundColor: Colors.white,
-    //   elevation: 0,
-    // ),
-    // bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-    //   backgroundColor: Colors.black,
-    //   elevation: 0,
-    // ),
-    // textTheme: const TextTheme(
-    //   headlineMedium: TextStyle(
-    //     fontSize: 20,
-    //     fontWeight: FontWeight.w600,
-    //     color: Colors.white,
-    //   ),
-    //   headlineSmall: TextStyle(
-    //     fontSize: 16,
-    //     fontWeight: FontWeight.w600,
-    //     color: Colors.white,
-    //   ),
-    //   bodyMedium: TextStyle(
-    //     fontSize: 16,
-    //     fontWeight: FontWeight.w500,
-    //     color: Colors.white,
-    //   ),
-    //   bodySmall: TextStyle(
-    //     fontSize: 14,
-    //     fontWeight: FontWeight.w500,
-    //     color: Colors.white,
-    //   ),
-    //   labelMedium: TextStyle(
-    //     fontSize: 14,
-    //     fontWeight: FontWeight.w500,
-    //     color: Colors.white,
-    //   ),
-    // ),
+  );
+
+  static ThemeData light = ThemeData(
+    brightness: Brightness.light,
+    primaryColor: AppPalette.primarySwatch,
+    useMaterial3: false,
+    scaffoldBackgroundColor: AppPalette.backgroundColor,
+    appBarTheme: const AppBarTheme(
+      backgroundColor: AppPalette.backgroundColor,
+      foregroundColor: AppPalette.black,
+      elevation: 0,
+      centerTitle: true,
+    ),
   );
 }

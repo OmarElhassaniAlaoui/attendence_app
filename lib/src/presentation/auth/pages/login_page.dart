@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_clean_architecture_starter/src/app/themes/app_spacing.dart';
+import 'package:flutter_clean_architecture_starter/src/app/themes/app_typography.dart';
+import 'package:flutter_clean_architecture_starter/src/app/widgets/button/button_widget.dart';
+import 'package:flutter_clean_architecture_starter/src/app/widgets/text_field_widget.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -8,26 +12,47 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _formKey = GlobalKey<FormState>();
+  final paswordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        const Text('Login Page'),
-        // create a text field for password
-        TextField(
-          obscureText: true,
-          onChanged: (value) {},
-          decoration: const InputDecoration(
-            labelText: 'Password',
+        body: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.s16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        spacing: AppSpacing.s16,
+        children: [
+          const Text('Login', style: TextStyle(fontSize: AppTypography.h1Bold)),
+          Form(
+            key: _formKey,
+            child: TextFieldWidget(
+              placeholder: 'mot de passe',
+              isHidden: true,
+              isDisabled: false,
+              isTextarea: false,
+              suffixIcon: null,
+              controller: paswordController,
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Mot de passe est requis';
+                } else if (value != '123456') {
+                  return 'Mot de passe incorrect';
+                }
+                return null;
+              },
+            ),
           ),
-        ),
-        ElevatedButton(
-          onPressed: () {},
-          child: const Text('Login'),
-        ),
-      ],
+          ButtonWidget(
+              text: 'login',
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                  print('login');
+                }
+              }),
+        ],
+      ),
     ));
   }
 }

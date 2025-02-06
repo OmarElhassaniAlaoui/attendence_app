@@ -40,7 +40,7 @@ class _TemplatePageState extends State<TemplatePage> {
               onPressed: () {
                 context.go(AppRoutes.logIn);
               },
-              child: const Text('Increment'),
+              child: const Text('go to login page'),
             ),
           ],
         ),
