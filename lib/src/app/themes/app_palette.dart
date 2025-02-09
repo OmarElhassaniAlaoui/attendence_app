@@ -61,4 +61,8 @@ class AppPalette {
   static const Color blue = Color(0xFF1877F2);
 
   // btn colors
-}
+} 
+
+
+
+

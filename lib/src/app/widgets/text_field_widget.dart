@@ -5,7 +5,6 @@ import 'package:flutter_clean_architecture_starter/src/app/themes/app_typography
 import 'package:flutter_clean_architecture_starter/src/app/utils/extentions/keyboard_util.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-
 /// A customizable TextFormField widget that supports various input configurations.
 class TextFieldWidget extends StatelessWidget {
   const TextFieldWidget({
@@ -77,10 +76,7 @@ class TextFieldWidget extends StatelessWidget {
       obscureText: isHidden,
       keyboardType: type,
       readOnly: isDisabled,
-      style: TextStyle(
-        color: AppPalette.black,
-        fontSize: AppTypography.b2Regular,
-      ),
+      style: AppTextStyle.bodyRegular,
       decoration: _buildDecoration(),
       maxLines: isTextarea ? 3 : 1,
       onChanged: onChanged,
@@ -94,10 +90,7 @@ class TextFieldWidget extends StatelessWidget {
 
     return InputDecoration(
       hintText: placeholder,
-      hintStyle: TextStyle(
-        color: AppPalette.greySwatch,
-        fontSize: AppTypography.b2Regular,
-      ),
+      hintStyle: AppTextStyle.captionRegular,
       filled: true,
       fillColor: AppPalette.white,
       border: _setInputBorder(AppPalette.greySwatch),

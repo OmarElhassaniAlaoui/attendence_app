@@ -13,7 +13,7 @@ class AppThemes {
   static ThemeData light = ThemeData(
     brightness: Brightness.light,
     primaryColor: AppPalette.primarySwatch,
-    useMaterial3: false,
+    useMaterial3: true,
     scaffoldBackgroundColor: AppPalette.backgroundColor,
     appBarTheme: const AppBarTheme(
       backgroundColor: AppPalette.backgroundColor,

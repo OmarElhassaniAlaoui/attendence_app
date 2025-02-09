@@ -12,6 +12,8 @@ abstract class _Paths {
   ///
   static const signUp = '/sign-up';
   static const logIn = '/log-in';
+
+  static const home = '/home';
 }
 
 abstract class AppRoutes {
@@ -28,4 +30,6 @@ abstract class AppRoutes {
   ///
   static const signUp = _Paths.signUp;
   static const logIn = _Paths.logIn;
+
+  static const home = _Paths.home;
 }

@@ -1,5 +1,4 @@
-
-import 'package:flutter_clean_architecture_starter/src/presentation/auth/pages/login_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'routes_exports.dart';
 part "app_routes.dart";
@@ -9,8 +8,19 @@ final _shellNavigatorKey = GlobalKey<NavigatorState>();
 
 class AppPagesConfig {
   late final GoRouter router = GoRouter(
-    routes: _routes,
+    debugLogDiagnostics: true,
+    navigatorKey: _rootNavigatorKey,
     initialLocation: AppRoutes.template,
+    routes: _routes,
+    redirect: (context, state) async {
+      final SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
+      bool isLoggedIn = await asyncPrefs.getBool('isLoggedIn') ?? false;
+      if (!isLoggedIn) {
+        return "/home";
+      } else {
+        return "/";
+      }
+    },
   );
 
   static final _routes = <RouteBase>[
@@ -18,10 +28,15 @@ class AppPagesConfig {
       path: AppRoutes.template,
       builder: (context, state) => const TemplatePage(),
     ),
-    
+
     GoRoute(
       path: AppRoutes.logIn,
       builder: (context, state) => const LoginPage(),
+    ),
+
+    GoRoute(
+      path: AppRoutes.home,
+      builder: (context, state) => const HomePage(),
     ),
 
     // ... other routes
