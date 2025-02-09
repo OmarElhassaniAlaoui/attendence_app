@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture_starter/src/app/themes/app_palette.dart';
 import 'package:flutter_clean_architecture_starter/src/app/themes/app_typography.dart';
+import 'package:flutter_clean_architecture_starter/src/app/widgets/bottom_navigation_bar_widget.dart';
 import 'package:flutter_clean_architecture_starter/src/app/widgets/button/button_enum.dart';
 import 'package:flutter_clean_architecture_starter/src/app/widgets/button/button_widget.dart';
 part '../widgets/module_widget.dart';
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
     "Module 4",
     "Module 5",
   ];
-  int _currentIndex = 0;
+  final int _currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -122,28 +123,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
           ),
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: _currentIndex,
-          onTap: (index) {
-            setState(() {
-              _currentIndex = index;
-            });
-          },
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person),
-              label: 'Profile',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-            ),
-          ],
-        ),
+        bottomNavigationBar: BottomNavigationBarWidget(),
       ),
     );
   }
