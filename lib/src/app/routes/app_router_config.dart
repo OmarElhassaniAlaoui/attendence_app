@@ -16,7 +16,7 @@ class AppPagesConfig {
       final SharedPreferencesAsync asyncPrefs = SharedPreferencesAsync();
       bool isLoggedIn = await asyncPrefs.getBool('isLoggedIn') ?? false;
       if (!isLoggedIn) {
-        return "/home";
+        return AppRoutes.home ; 
       } else {
         return "/";
       }
