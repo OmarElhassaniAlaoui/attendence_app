@@ -30,26 +30,28 @@ class AttendanceLocalDataSourceImpl implements AttendanceLocalDataSource {
     await db.execute('''
       CREATE TABLE attendance(
         id INTEGER PRIMARY KEY AUTOINCREMENT,
-        fullname TEXT,
-        department TEXT,
-        groupNumber TEXT,
-        timestamp TEXT,
-        trainingModule TEXT
+        title TEXT,
+        nbrOfgroups INTEGER,
+        nbrOfSibledPeople INTEGER,
+        nbrOfDays INTEGER,
+        date TEXT,
+        employe TEXT,
       )
     ''');
   }
 
   @override
-  Future<AttendanceEntity> saveAttendance(EmployeModel employee, String trainingModule) async {
+  Future<AttendanceEntity> saveAttendance(EmployeModel employee, String moduleTitle )  async {
     final db = await database;
     final timestamp = DateTime.now().toIso8601String();
 
     await db.insert('attendance', {
-      'fullname': employee.fullname,
-      'department': employee.department,
-      'groupNumber': employee.groupNumber,
-      'timestamp': timestamp,
-      'trainingModule': trainingModule,
+      'title': moduleTitle,
+      'nbrOfgroups': employee.nbrOfgroups,
+      'nbrOfSibledPeople': employee.nbrOfSibledPeople,
+      'nbrOfDays': employee.nbrOfDays,
+      'date': timestamp,
+      'employe': employee.fullname,
     });
 
     return AttendanceEntity(

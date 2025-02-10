@@ -13,16 +13,20 @@ class AttendanceRepositoryImpl implements AttendanceRepository {
   AttendanceRepositoryImpl({required this.localDataSource});
 
   @override
-  Future<Either<Failure, AttendanceEntity>> recordAttendance(EmployeEntity employee, String trainingModule) async {
+  Future<Either<Failure, AttendanceEntity>> recordAttendance(
+      EmployeEntity employee, String trainingModule) async {
     try {
-      final record = await localDataSource.saveAttendance(EmployeModel(
-        fullname: employee.fullname,
-        department: employee.department,
-        groupNumber: employee.groupNumber,
-        date: employee.date,
-        phoneNumber: employee.phoneNumber,
-        email: employee.email,
-      ), trainingModule);
+      final record = await localDataSource.saveAttendance(
+          EmployeModel(
+            fullname: employee.fullname,
+            department: employee.department,
+            groupNumber: employee.groupNumber,
+            date: employee.date,
+            phoneNumber: employee.phoneNumber,
+            email: employee.email,
+            isPresent: employee.isPresent,
+          ),
+          trainingModule);
       return Right(record);
     } catch (e) {
       return Left(DatabaseFailure());
@@ -30,9 +34,11 @@ class AttendanceRepositoryImpl implements AttendanceRepository {
   }
 
   @override
-  Future<Either<Failure, List<AttendanceEntity>>> getAttendanceRecords(String trainingModule) async {
+  Future<Either<Failure, List<AttendanceEntity>>> getAttendanceRecords(
+      String trainingModule) async {
     try {
-      final records = await localDataSource.getAttendanceRecords(trainingModule);
+      final records =
+          await localDataSource.getAttendanceRecords(trainingModule);
       return Right(records);
     } catch (e) {
       return Left(DatabaseFailure());
@@ -42,7 +48,8 @@ class AttendanceRepositoryImpl implements AttendanceRepository {
   @override
   Future<Either<Failure, String>> exportToExcel(String trainingModule) async {
     try {
-      final records = await localDataSource.getAttendanceRecords(trainingModule);
+      final records =
+          await localDataSource.getAttendanceRecords(trainingModule);
       final filePath = await ExportToExcel.export(records, trainingModule);
       return Right(filePath);
     } catch (e) {

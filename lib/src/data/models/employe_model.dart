@@ -8,6 +8,7 @@ class EmployeModel extends EmployeEntity {
     required super.date,
     required super.phoneNumber,
     required super.email,
+    required super.isPresent,
   });
 
   factory EmployeModel.fromQRData(String qrData) {
@@ -19,6 +20,7 @@ class EmployeModel extends EmployeEntity {
       date: data[3],
       phoneNumber: int.parse(data[4]),
       email: data[5],
+      isPresent: false,
     );
   }
 
@@ -30,6 +32,7 @@ class EmployeModel extends EmployeEntity {
       'date': date,
       'phoneNumber': phoneNumber,
       'email': email,
+      'isPresent': isPresent,
     };
   }
 }
